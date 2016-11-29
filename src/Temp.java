@@ -5,7 +5,7 @@
  */
 public class Temp {
     public static void main(String[] args) {
-        ;
+
         byte[] bytes = "吕布".getBytes();
         for (int i = 0; i < bytes.length; i++) {
             System.out.println((int) bytes[i]);
