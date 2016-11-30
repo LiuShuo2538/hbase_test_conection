@@ -6,12 +6,12 @@
 public class Temp {
     public static void main(String[] args) {
 ;
-        byte[] bytes = "吕布".getBytes();
+        byte[] bytes = "1".getBytes();
         for (int i = 0; i < bytes.length; i++) {
-            System.out.println((int) bytes[i]);
+            System.out.print((int) bytes[i]+",");
         }
-
-        byte[] bytes2 =  {-27, -123, -77, -25, -101, -72};
+        System.out.println();
+        byte[] bytes2 =  {-27, -112, -107, -27, -72, -125};
         String s = new String(bytes2);
         System.out.println(s);
     }
