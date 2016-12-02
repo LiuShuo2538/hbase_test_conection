@@ -5,8 +5,8 @@
  */
 public class Temp {
     public static void main(String[] args) {
-;
-        byte[] bytes = "1".getBytes();
+
+        byte[] bytes = "公司".getBytes();
         for (int i = 0; i < bytes.length; i++) {
             System.out.print((int) bytes[i]+",");
         }

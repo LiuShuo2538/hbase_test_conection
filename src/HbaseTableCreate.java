@@ -12,7 +12,7 @@ import org.apache.hadoop.conf.Configuration;
 /**
  * 建表
  */
-public class HbaseTest {
+public class HBaseTableCreate {
 
 	public static void main(String[] args) throws IOException {
 //		182.92.68.59

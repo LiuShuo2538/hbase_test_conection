@@ -10,7 +10,7 @@ import java.io.IOException;
  * 添加数据
  * Created by ${LiuShuo} on 2016/11/28.
  */
-public class HBaseTablePut {
+public class HBaseDataPut {
 
     public static void main(String[] args) throws IOException {
 
