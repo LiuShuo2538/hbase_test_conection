@@ -21,6 +21,7 @@ public class HBaseTableScan {
         Scan scan = new Scan();
         HTable table = new HTable(config, "LIUSHUO1");
         //不放就全都查出来了
+
 //        scan.addColumn(Bytes.toBytes("f1"), Bytes.toBytes("NAME"));
 //        scan.addColumn(Bytes.toBytes("f1"), Bytes.toBytes("ADDRESS"));
 //        scan.addColumn(Bytes.toBytes("f2"), Bytes.toBytes("IDCARD"));
