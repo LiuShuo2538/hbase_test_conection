@@ -24,25 +24,26 @@ public class HBaseDataQuery {
         HTable table = new HTable(config, "LIUSHUO1");
 
         // Instantiating Get class
-        Get g = new Get(Bytes.toBytes("row1"));
+        Get g = new Get(Bytes.toBytes("row3"));
 
         // Reading the data
         Result result = table.get(g);
-
-        // Reading values from Result class object
-        byte[] value = result.getValue(Bytes.toBytes("f1"), Bytes.toBytes("NAME"));
-        NavigableMap<byte[], byte[]> f1 = result.getFamilyMap(Bytes.toBytes("f2"));
-        byte[] value1 = result.getValue(Bytes.toBytes("f2"), Bytes.toBytes("IDCARD"));
+        //查询族下键
+        NavigableMap<byte[], byte[]> f1 = result.getFamilyMap(Bytes.toBytes("f1"));
         NavigableSet<byte[]> bytes = f1.navigableKeySet();
         Iterator<byte[]> iterator = bytes.iterator();
         while (iterator.hasNext()) {
             byte[] next = iterator.next();
-            System.out.println(new String(next));
+            String columnKey = new String(next);
+            byte[] value = result.getValue(Bytes.toBytes("f1"), Bytes.toBytes(columnKey));
+            System.out.println(columnKey+": " + Bytes.toString(value));
         }
-        // Printing the values
-        String name = Bytes.toString(value);
-        String idCard = Bytes.toString(value1);
-        System.out.println();
-//        System.out.println("NAME: " + name + " IDCARD: " + idCard);
+
+
+
+
+//        byte[] value1 = result.getValue(Bytes.toBytes("f2"), Bytes.toBytes("IDCARD"));
+//        String idCard = Bytes.toString(value1);
+//        System.out.println( " IDCARD: " + idCard);
     }
 }

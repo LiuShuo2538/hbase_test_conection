@@ -5,10 +5,13 @@ import org.apache.hadoop.hbase.HTableDescriptor;
 import org.apache.hadoop.hbase.client.HBaseAdmin;
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
 import org.apache.hadoop.hbase.io.encoding.DataBlockEncoding;
+import org.apache.hadoop.hbase.protobuf.generated.HBaseProtos;
 
 import java.io.IOException;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * 列出表
@@ -30,6 +33,12 @@ public class HBaseTableList {
         for (int i=0; i<tableDescriptor.length;i++ ){
             //表名
             String nameAsString = tableDescriptor[i].getNameAsString();
+            //查询表里族
+            Set<byte[]> familiesKeys = tableDescriptor[i].getFamiliesKeys();
+
+
+
+            //获取族名
             Collection<HColumnDescriptor> families = tableDescriptor[i].getFamilies();
             for (HColumnDescriptor ii:families) {
                 byte[] name = ii.getName();

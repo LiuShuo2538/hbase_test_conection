@@ -14,8 +14,6 @@ public class HBaseDataPut {
 
     public static void main(String[] args) throws IOException {
 
-
-// Instantiating Configuration class
         Configuration config = HBaseConfiguration.create();
         config.set("hbase.zookeeper.quorum", "182.92.68.59");// zookeeper地址
         config.set("hbase.zookeeper.property.clientPort", "2181");// zookeeper端口
@@ -24,15 +22,16 @@ public class HBaseDataPut {
 
         // Instantiating Put class
         // accepts a row name.
-        Put p = new Put(Bytes.toBytes("row2"));
+        Put p = new Put(Bytes.toBytes("row3"));
 
         // adding values using add() method
         // accepts column family name, qualifier/row name ,value
         p.add(Bytes.toBytes("f1"),
-                Bytes.toBytes("NAME"),Bytes.toBytes("张飞"));
-
-        p.add(Bytes.toBytes("f2"),Bytes.toBytes("IDCARD"),
-                Bytes.toBytes("220323199203080818"));
+                Bytes.toBytes("NAME"), Bytes.toBytes("关羽"));
+        p.add(Bytes.toBytes("f1"),
+                Bytes.toBytes("ADDRESS"), Bytes.toBytes("山西省运城市神马县"));
+        p.add(Bytes.toBytes("f2"), Bytes.toBytes("IDCARD"),
+                Bytes.toBytes("220323199203080819"));
 
         // Saving the put Instance to the HTable.
         hTable.put(p);
